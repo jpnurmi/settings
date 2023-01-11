@@ -67,11 +67,13 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final textColor = Theme.of(context).appBarTheme.foregroundColor;
-    return AppBar(
-      toolbarHeight: appBarHeight,
-      foregroundColor: textColor,
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      flexibleSpace: RawKeyboardListener(
+    return YaruWindowTitleBar(
+      isClosable: false,
+      isMaximizable: false,
+      isMinimizable: false,
+      isRestorable: false,
+      titleSpacing: 0,
+      title: RawKeyboardListener(
         onKey: (event) {
           if (event.logicalKey == LogicalKeyboardKey.escape) {
             onEscape();
@@ -80,7 +82,7 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
         focusNode: FocusNode(),
         child: SizedBox(
-          height: appBarHeight,
+          height: kYaruTitleBarHeight - 2,
           child: TextField(
             expands: true,
             maxLines: null,

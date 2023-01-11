@@ -65,9 +65,9 @@ class _UbuntuSettingsAppState extends State<UbuntuSettingsApp> {
                   title: pages[index].titleBuilder(context),
                   leading: pages[index].iconBuilder(context, selected),
                 ),
-                pageBuilder: (context, index) => YaruDetailPage(
+                pageBuilder: (context, index) => Scaffold(
                   body: pages[index].builder(context),
-                  appBar: AppBar(
+                  appBar: YaruWindowTitleBar(
                     title: pages[index].titleBuilder(context),
                     leading: Navigator.of(context).canPop()
                         ? const YaruBackButton()
